@@ -56,6 +56,11 @@ END:STANDARD
 END:VTIMEZONE
 ```
 
+## Disclaimer
+This tool is provided as-is, with no guarantee of support or maintenance. The hosted version on https://ics-changer.great-site.net is offered as a free convenience but comes without any responsibility for its usage. If you rely on the hosted service, please be aware that support is not provided, and any changes or issues with the tool may not be communicated.
+
+For guaranteed control over the tool, consider hosting your own version using the instructions above.
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
