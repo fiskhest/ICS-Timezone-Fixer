@@ -19,9 +19,25 @@ try {
 // Function to get the ICS URL from the query parameter
 function getIcsUrl() {
     if (!isset($_GET['ics_url']) || empty($_GET['ics_url'])) {
-        throw new Exception('No ICS URL provided.');
+        outputInstructions();
+        exit;
     }
     return $_GET['ics_url'];
+}
+
+// Function to display usage instructions
+function outputInstructions() {
+    echo "<h1>ICS Timezone Fixer</h1>";
+    echo "<p>This tool modifies a provided .ics calendar file to include missing timezones, ensuring accurate event times in Google Calendar and other apps.</p>";
+    echo "<h2>How to Use:</h2>";
+    echo "<ol>";
+    echo "<li>Provide an .ics file URL as a query parameter named <code>ics_url</code>.</li>";
+    echo "<li>Example usage:</li>";
+    echo "<pre>https://ics-changer.great-site.net/?ics_url=https://original-calendar-url.ics</pre>";
+    echo "<li>Just use the new URL as a replacement for the original one!</li>";
+    echo "</ol>";
+    echo "<h2>Note:</h2>";
+    echo "<p>The hosted version is provided as-is, without guarantees. If you require reliable access, consider setting up your own server using this code.</p>";
 }
 
 // Function to validate the provided URL and enforce HTTPS
