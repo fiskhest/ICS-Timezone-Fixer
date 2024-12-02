@@ -109,13 +109,12 @@ function fetchIcsContent($url, $maxFileSize) {
     // Define the write function callback
     $writeFunction = function($ch, $data) use (&$icsContent, &$totalDownloaded, $maxFileSize) {
         $length = strlen($data);
-        $newTotal = $totalDownloaded + $length;
+        $totalDownloaded += $length;
 
-        if ($newTotal > $maxFileSize) {
+        if ($totalDownloaded > $maxFileSize) {
             return -1; // Stop reading if limit is exceeded
         } else {
             $icsContent .= $data;
-            $totalDownloaded = $newTotal;
             return $length;
         }
     };
