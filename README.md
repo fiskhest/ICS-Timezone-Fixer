@@ -56,6 +56,12 @@ END:STANDARD
 END:VTIMEZONE
 ```
 
+## Docker instructions
+
+``` sh
+docker build --push -t johrad/ics-timezone-fixer .
+```
+
 ## Disclaimer
 This tool is provided as-is, with no guarantee of support or maintenance. The hosted version on https://ics-changer.great-site.net is offered as a free convenience but comes without any responsibility for its usage. If you rely on the hosted service, please be aware that support is not provided, and any changes or issues with the tool may not be communicated.
 
