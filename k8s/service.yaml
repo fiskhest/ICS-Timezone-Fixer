@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ics-timezone-fixer
+    component: ingress-controller
+    type: nginx
+  name: ics-timezone-fixer-http
+spec:
+  ports:
+    - name: ics-timezone-fixer-http
+      port: 3000
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: ics-timezone-fixer
+    component: ingress-controller
+    type: nginx
+  sessionAffinity: None
+  type: ClusterIP

@@ -1,0 +1,30 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+  labels:
+    app: ics-timezone-fixer
+    component: ingress-controller
+    type: nginx
+  name: ics-timezone-fixer-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: ics-changer.domain.tld
+      http:
+        paths:
+          - backend:
+              service:
+                name: ics-timezone-fixer-http
+                port:
+                  number: 3000
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - ics-changer.domain.tld
+      secretName: ics-changer-domain-tld-cert
