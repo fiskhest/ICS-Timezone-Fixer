@@ -1,6 +1,6 @@
 <?php
 // Define constants
-define('MAX_FILE_SIZE', 819200); // 800 kB
+define('MAX_FILE_SIZE', 2097000); // 2 MB
 define('MISSING_TIMEZONES_FILE', __DIR__ . '/missing_timezones');
 
 // Main execution
@@ -33,7 +33,7 @@ function outputInstructions() {
     echo "<ol>";
     echo "<li>Provide an .ics file URL as a query parameter named <code>ics_url</code>.</li>";
     echo "<li>Example usage:</li>";
-    echo "<pre>https://ics-changer.great-site.net/?ics_url=https://original-calendar-url.ics</pre>";
+    echo "<pre>https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?ics_url=https://original-calendar-url.ics</pre>";
     echo "<li>Just use the new URL as a replacement for the original one!</li>";
     echo "</ol>";
     echo "<h2>Note:</h2>";
